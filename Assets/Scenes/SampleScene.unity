@@ -329,11 +329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 533335583}
   defaultSpeed: 6
-  sprintSpeed: 20
+  sprintSpeed: 12
   gravity: -9.81
-  jumpHeight: 3
-  groundCheck: {fileID: 885655744}
-  groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -368,7 +365,6 @@ Transform:
   m_Children:
   - {fileID: 203948467}
   - {fileID: 963194228}
-  - {fileID: 885655744}
   - {fileID: 1787168043}
   - {fileID: 1274392076}
   m_Father: {fileID: 0}
@@ -424,36 +420,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: 182a582419ec2ac41a3ab10bb151538e, type: 3}
---- !u!1 &885655743
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 885655744}
-  m_Layer: 0
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &885655744
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885655743}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.487, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 533335584}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +532,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9d65a4ec3b6bcf7439d2e38d6dcbe7a7, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d65a4ec3b6bcf7439d2e38d6dcbe7a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -752,7 +718,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4b37f871eafd46647aecd162eeac54e2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b37f871eafd46647aecd162eeac54e2, type: 3}
       propertyPath: m_LocalPosition.x

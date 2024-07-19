@@ -10,11 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 20f;
     private Vector3 velocity;
     public float gravity = -9.81f;
-    public float jumpHeight = 3f;
-    public Transform groundCheck;
-    public float groundDistance = .4f;
     public LayerMask groundMask;
-    private bool isGrounded;
     private float speed;
 
     void Start()
@@ -24,21 +20,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // check based on sphere at players feet
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
+        // TODO: Might be able to remove no grounding needed if no jumping
         // Grounded check, resets velocity in y direction to small amount
-        if(isGrounded && velocity.y < 0){
-            controller.slopeLimit = 45.0f; // fix this
-            velocity.y = -2f;
-        }
+        // if(isGrounded && velocity.y < 0){
+        //     controller.slopeLimit = 45.0f; // fix this
+        //     velocity.y = -2f;
+        // }
 
         // look around
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         // handle sprinting
-        if(Input.GetKey("left shift") && isGrounded){
+        if(Input.GetKey("left shift")){
             speed = sprintSpeed;
         } else{
             speed = defaultSpeed;
@@ -49,10 +43,10 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
 
         // jumping
-        if(Input.GetButtonDown("Jump") && isGrounded){
-            controller.slopeLimit = 100.0f; // fix this
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        // if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+        //     controller.slopeLimit = 100.0f; // fix this
+        //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        // }
 
         // gravity setup
         velocity.y += gravity * Time.deltaTime;
